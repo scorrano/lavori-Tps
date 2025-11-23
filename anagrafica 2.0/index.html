@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anagrafica Generazionale</title>
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #5e7ce2, #3749c7);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  form {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 35px 45px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  h1 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 30px;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 8px;
+    margin-top: 18px;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.4));
+  }
+
+  input[type="text"],
+  input[type="number"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.85);
+    transition: 0.25s;
+    font-size: 1rem;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px rgba(255,255,255,0.6);
+  }
+
+  .radio-group,
+  .checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 8px;
+  }
+
+  .radio-group label,
+  .checkbox-group label {
+    color: white;
+    font-weight: 500;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.3));
+  }
+
+  input[type="button"] {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px;
+    background: #1b2fa1;
+    color: white;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: 0.25s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  }
+
+  input[type="button"]:hover {
+    background: #15258b;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.55);
+  }
+
+  #output {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px 35px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    color: #fff;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.25);
+    border: 1px solid rgba(255,255,255,0.3);
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  #output h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #ffffff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+
+  #output p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 15px;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+<body>
+  <form id="anagraficaForm">
+    <h1>Anagrafica Generazionale</h1>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" name="nome" required>
+
+    <label for="cognome">Cognome</label>
+    <input type="text" id="cognome" name="cognome" required>
+
+    <label for="indirizzo">Indirizzo</label>
+    <input type="text" id="indirizzo" name="indirizzo">
+
+    <label for="citta">Città</label>
+    <input type="text" id="citta" name="citta">
+
+    <label for="cap">CAP</label>
+    <input type="text" id="cap" name="cap">
+
+    <label for="eta">Età</label>
+    <input type="number" id="eta" name="eta" placeholder="Età attuale">
+
+    <label for="dataNascita">Data di nascita</label>
+    <input type="date" id="dataNascita" name="dataNascita">
+
+    <label>Sesso</label>
+    <div class="radio-group">
+      <label><input type="radio" name="sesso" value="M"> M</label>
+      <label><input type="radio" name="sesso" value="F"> F</label>
+      <label><input type="radio" name="sesso" value="Altro"> Altro</label>
+    </div>
+
+    <label for="provincia">Provincia</label>
+    <select id="provincia" name="provincia">
+      <option value="">-- Seleziona la provincia --</option>
+      <option>RM - Roma</option>
+      <option>MI - Milano</option>
+      <option>NA - Napoli</option>
+      <option>TO - Torino</option>
+      <option>FI - Firenze</option>
+      <option>VE - Venezia</option>
+      <option>BA - Bari</option>
+    </select>
+
+    <label>Mezzi di locomozione posseduti in famiglia</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="mezzi" value="Auto"> Auto</label>
+      <label><input type="checkbox" name="mezzi" value="Moto"> Moto</label>
+      <label><input type="checkbox" name="mezzi" value="Bici"> Bici</label>
+      <label><input type="checkbox" name="mezzi" value="Aereo"> Aereo</label>
+      <label><input type="checkbox" name="mezzi" value="Yacht"> Yacht</label>
+    </div>
+
+    <label for="materie">Materie di insegnamento preferite (max 3)</label>
+    <select id="materie" name="materie" multiple>
+      <option>Matematica</option>
+      <option>Italiano</option>
+      <option>Inglese</option>
+      <option>Scienze</option>
+      <option>Storia</option>
+      <option>Geografia</option>
+      <option>Arte</option>
+      <option>Educazione fisica</option>
+      <option>Musica</option>
+    </select>
+
+    <input type="button" value="Invia dati" onclick="stampa()">
+  </form>
+
+  <div id="output">
+    <h2>Dati Inseriti</h2>
+    <p>Compila il modulo e premi "Invia dati" per vedere il riepilogo qui.</p>
+  </div>
+<script src="script.js"></script>
+
+</body>
+</html>

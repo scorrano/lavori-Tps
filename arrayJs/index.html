@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Generatore Numeri in Griglia Ordinata</title>
+
+ <style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    margin: 0;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-size: 32px;
+    color: #0d47a1;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.15);
+  }
+
+  h2, h3 {
+    color: #0d47a1;
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+
+  button {
+    background: #1565c0;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 28px;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.25s;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+
+  button:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  }
+
+  .stats {
+    background: white;
+    padding: 15px 25px;
+    margin-top: 20px;
+    border-radius: 18px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .stats p {
+    font-size: 17px;
+  }
+
+  #vettore, #griglia {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 8px;
+    background: white;
+    padding: 20px;
+    border-radius: 18px;
+    margin-top: 12px;
+    width: 90%;
+    max-width: 900px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  #vettore span, #griglia span {
+    display: inline-block;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #e3f2fd;
+    font-family: monospace;
+    border: 1px solid #bbdefb;
+    transition: 0.25s;
+    font-size: 14px;
+  }
+
+  #vettore span:hover, #griglia span:hover {
+    background: #bbdefb;
+    transform: scale(1.08);
+  }
+
+  #vettore span.alta, #griglia span.alta {
+    background: #c8e6c9;
+    border-color: #81c784;
+    font-weight: bold;
+  }
+
+  /* Numeri negativi */
+  #vettore span.negativo {
+    background: #ffccbc;
+    border-color: #ff7043;
+    font-weight: bold;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+
+<body>
+  <h1>Generatore di Numeri Casuali</h1>
+
+  <button type="button" onclick="generaNumeri()">Genera Numeri</button>
+
+  <div class="stats">
+    <h2>Statistiche</h2>
+    <p><strong>Media:</strong> <span id="media"></span></p>
+    <p><strong>Massimo:</strong> <span id="max"></span></p>
+    <p><strong>Minimo:</strong> <span id="min"></span></p>
+  </div>
+
+  <h3>Vettore completo:</h3>
+  <div id="vettore"></div>
+
+  <h3>Numeri > 50:</h3>
+  <div id="griglia"></div>
+
+  <script src="codice.js"></script>
+</body>
+</html>
+
